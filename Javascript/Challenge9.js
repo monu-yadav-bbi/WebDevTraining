@@ -1,3 +1,5 @@
+"use strict";
+
 const measureKelvin = function () {
   const measurement = {
     type: "temp",
