@@ -20,6 +20,7 @@ const closeModal = function () {
 };
 
 btnsOpenModal.forEach((btn) => btn.addEventListener("click", openModal));
+
 // for (let i = 0; i < btnsOpenModal.length; i++)
 //   btnsOpenModal[i].addEventListener("click", openModal);
 
@@ -31,3 +32,14 @@ document.addEventListener("keydown", function (e) {
     closeModal();
   }
 });
+// document.addEventListener("DOMContentLoaded", function (e) {
+//   console.log("html parsed and Dom tree built", e);
+// });
+// window.addEventListener("load", function (e) {
+//   console.log("pageloaded", e);
+// });
+// window.addEventListener("beforeunload", function (e) {
+//   e.preventDefault();
+//   console.log(e);
+//   e.returnValue = " ";
+// });
