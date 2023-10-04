@@ -1,76 +1,82 @@
 header {
-    overflow: hidden;
-    background-color: #f69e9e;
-    
-  }
-  
-  .navbar a {
-    color: black;
-    text-align: right;
-    /* padding: 12px; */
-    display: flex;
-    justify-content: flex-end;
-    font-size: 18px; 
-    line-height: 25px;
-    border-radius: 4px; 
-  }
-  
-  .navbar a:hover {
-    background-color: #ddd;
-    color: black;
-  }
-  
-  /* .navbar a.active {
+  overflow: hidden;
+  background-color: #f69e9e;
+}
+
+.navbar a {
+  color: black;
+  text-align: right;
+  /* padding: 12px; */
+  display: flex;
+  justify-content: flex-end;
+  font-size: 18px;
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* .navbar a.active {
     background-color: dodgerblue;
     color: white;
   } */
-  
+
 /* Sidebar  */
 .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 250px;
-    background-color: #f2f2f2;
-    padding: 20px;
-    overflow-y: auto;
-  }
-  .menu {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  .menu li {
-    margin-bottom: 10px;
-  }
-  .menu a {
-    display: block;
-    padding: 10px;
-    border-radius: 5px;
-    text-decoration: none;
-    color: #333;
-  }
-  .menu a:hover {
-    background-color: #333;
-    color: #fff;
-  }
-  h1{
-    text-align: center;
-  }
-  
-  @media(max-width: 700px){
-    h1{
-        font-size: 4em;
-    }
-    .leftSidebar{
-        flex-direction: column;
-        align-items: center;
-    }
-    
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 250px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  overflow-y: auto;
 }
-@media(max-width: 576px){
-    h1{
-        font-size: 3em;
-    }
+.resize-area {
+  height: 100vh;
+  width: 10px;
+  position: absolute;
+  top: 0;
+  left: -5px;
+}
+
+.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.menu li {
+  margin-bottom: 10px;
+}
+.menu a {
+  display: block;
+  padding: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #333;
+}
+.menu a:hover {
+  background-color: #333;
+  color: #fff;
+}
+h1 {
+  text-align: center;
+}
+
+@media (max-width: 700px) {
+  h1 {
+    font-size: 4em;
+  }
+  .leftSidebar {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media (max-width: 576px) {
+  h1 {
+    font-size: 3em;
+  }
 }
