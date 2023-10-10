@@ -1,4 +1,41 @@
 <?php
+    include '../Controller/dbconnect.php';   
+    session_start();
+    if($_SESSION['status']!="Active")
+    {
+    header("location:login.php");
+    }
+
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    // Retrieve task data from the POST request
+    // $username = $_POST["username"];
+    $sno =$_POST["sno"];
+    $userID =$_POST["userID"];
+    $taskText = $_POST["taskText"];
+    echo $taskText;
+
+    $sql = "INSERT INTO `task`(`sno`, `userID`, `taskText`) VALUES ($sno,$userID,$taskText)";
+    // $sql = "INSERT INTO `task`(`taskText`) VALUES ('$taskText');";
+    $result = mysqli_query($conn, $sql);
+    // $stmt = $conn->prepare($sql);
+    // $stmt->bind_param("s", $taskText);
+
+    // if ($stmt->execute()) {
+    //     // Task added successfully
+    //     echo json_encode(["success" => true, "message" => "Task added successfully"]);
+    // } else {
+    //     // Error occurred while adding the task
+    //     echo json_encode(["success" => false, "message" => "Task could not be added"]);
+    // }
+
+    // // Close the database connection
+    // $stmt->close();
+    // $conn->close();
+} else {
+    $result =false;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -62,15 +99,18 @@
 </style>
 </head>
 <body>
+<form action="todolist.php" method="post">
 <div class="container">
 <h1>To-Do List</h1>
-<input type="text" id="taskInput" placeholder="Add a new task...">
+<label for="taskInput">Task</label>
+<input type="text" id="taskInput" name="taskInput" placeholder="Add a new task...">
 <button id="addTask">Add</button>
 <ul id="taskList"></ul>
 
 </div>
+</form>
 <form action="logout.php" method="post">
-<button type="submit" class="btn btn-primary">Logout</button>
+<button type="submit" class="btn btn-primary">Logout</button> 
 
     </form>
 <script>

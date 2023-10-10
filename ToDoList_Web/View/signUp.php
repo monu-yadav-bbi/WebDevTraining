@@ -5,11 +5,11 @@ include '../Controller/dbconnect.php';
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     $username = $_POST["username"];
-    echo $username;
+    // echo $username;
     $password = $_POST["password"];
-    echo $password;
+    // echo $password;
     $cpassword = $_POST["cpassword"];
-    echo $cpassword;
+    // echo $cpassword;
     
     if($password == $cpassword){
       $hash = password_hash($password,PASSWORD_DEFAULT);
@@ -67,7 +67,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   <body>
 
     <div class="container">
-     <h1 class="text-center">Signup to our website</h1>
+     <h1 class="text-center">Signup to our ToDoList</h1>
      <form action="signUp.php" method="post">
         <div class="form-group">
             <label for="username">Username</label>

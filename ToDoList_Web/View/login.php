@@ -23,6 +23,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 session_start();
         $_SESSION['loggedin'] = true;
         $_SESSION['username'] = $username;
+        $_SESSION['status']="Active";
         header("location: todolist.php");
             }
             else{
@@ -75,7 +76,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   <body>
 
     <div class="container ">
-     <h1 class="text-center">Login to our website</h1>
+     <h1 class="text-center">Login to our ToDoList</h1>
      <form action="login.php" method="post">
         <div class="form-group">
             <label for="username">Username</label>
