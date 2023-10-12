@@ -2,6 +2,7 @@
 // echo "hi";
 include '../Controller/dbconnect.php';
 
+
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     // include 'Controller/dbconnect.php';
     $username = $_POST["username"];

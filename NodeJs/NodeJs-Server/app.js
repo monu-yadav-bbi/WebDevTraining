@@ -1,44 +1,18 @@
 const http = require("http");
-const fs = require("fs");
+const express = require("express");
+// console.log(express);
+const app = express();
+// const routes = require("./routes"); //import routes js file
 // console.log(fs);
 // console.log(http);
-const server = http.createServer((request, response) => {
-  //   console.log(request.url, request.headers, request.method);
-  //   process.exit(); hard exit our eventloop
-  const url = request.url;
-  const method = request.method;
-  if (url === "/") {
-    response.write("<html>");
-    response.write("<head><title>Enter Message</title></head>");
-    response.write(
-      '<body><form action="/message" method="POST"><input type="text" name="message"><button type="submit"> Send </button> </form></body>'
-    );
-    response.write("</html>");
-    return response.end();
-  }
-  if (url === "/message" && method === "POST") {
-    const body = [];
-    //getour request data
-    request.on("data", (chunk) => {
-      console.log(chunk); //chunk data
-      body.push(chunk);
-    });
-    return request.on("end", () => {
-      const parseBody = Buffer.concat(body).toString();
-      console.log(parseBody); //data in key value pair data which we use
-      const message = parseBody.split("=")[1];
-      fs.writeFileSync("message.txt", message);
-      response.statusCode = 302;
-      response.setHeader("Location", "/");
-      return response.end();
-    });
-  }
 
-  response.setHeader("Content-Type", "text/html");
-  response.write("<html>");
-  response.write("<head><title>node Page</title></head>");
-  response.write("<body><h1>Hello from my Node.js Server</h1></body>");
-  response.write("</html>");
-  response.end();
+// const server = http.createServer(routes);
+app.use((request, response, next) => {
+  console.log("In the middleware!");
+  next(); //allow to go to next middleware
 });
+app.use((request, response, next) => {
+  console.log("In another middleware!");
+});
+const server = http.createServer(app);
 server.listen(3000);
